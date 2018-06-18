@@ -1,0 +1,54 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.char {
+    width: auto;
+    height: auto;
+}
+
+.edge {
+    stroke: #bdc3c7;
+    stroke-opacity: 0.6;
+    stroke-width: 2px;
+    fill: transparent;
+}
+
+.node {
+    stroke: #2980b9;
+    stroke-width: 2.5px;
+    fill: #2980b9;
+}
+
+.current-node {
+    stroke: #1abc9c;
+}
+
+
+svg text {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+
+/*
+.active {
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.rect {
+  pointer-events: all;
+  stroke: none;
+  stroke-width: 40px;
+}
+*/
+
