@@ -2,7 +2,9 @@ body {
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
-
+.chart { 
+border: 1px solid black;
+ }
 .char {
     width: auto;
     height: auto;

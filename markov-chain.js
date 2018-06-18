@@ -1,7 +1,7 @@
 
-var margin = {top: 10, right: 10, bottom: 30, left: 10},
-  width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom
+// var margin = {top: 10, right: 10, bottom: 30, left: 10},
+//  width = 960 - margin.left - margin.right,
+//  height = 500 - margin.top - margin.bottom
 
 var data = {
   nodes: [
@@ -16,12 +16,13 @@ var data = {
   ]
 }
 
-var color = d3.scaleOrdinal(d3.schemeCategory20)
+// var color = d3.scaleOrdinal(d3.schemeCategory20)
 
-// var svg = d3.select('body').append('svg')
-//    .attr('width', width + margin.left + margin.right)
-//    .attr('height', height + margin.top + margin.bottom)
 var svg = d3.select('.chart')
+var w = window.innerWidth
+const h = window.innerHeight * 0.66
+document.getElementById('chart').style.width = w
+document.getElementById('chart').style.height = h
 var width = svg.attr('width')
 var height = svg.attr('height')
 
@@ -72,12 +73,20 @@ function drawBezierCurve (x, y) {
 }
 
 // + ------------------------------------------------------------------------- +
-
+/*
 var group = svg.selectAll('g')
   .data(data.nodes)
   .enter().append('g')
   .attr('transform',
         'translate(' + margin.left + ',' + margin.top + ')')
+  .call(d3.drag()
+    .on('start', dragstarted)
+    .on('drag', dragged)
+    .on('end', dragended))
+*/
+var group = svg.selectAll('g')
+  .data(data.nodes)
+  .enter().append('g')
   .call(d3.drag()
     .on('start', dragstarted)
     .on('drag', dragged)
@@ -89,7 +98,8 @@ group.append('circle')
      .attr('cy', function (d) { return d.y })
      .attr('height', 60)
      .attr('width', 30)
-     .style('fill', function (d, i) { return color(i) })
+      .style('fill', function (d, i) { return '#ff6633' })
+     // .style('fill', function (d, i) { return color(i) })
 
 group.append('text')
      .attr('x', function (d) { return d.x - 5 })
