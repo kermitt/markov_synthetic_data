@@ -3,7 +3,7 @@
 <head>
 <style type="text/css">
     
-    .links line {
+.links line {
   stroke: #999;
   stroke-opacity: 0.6;
 }
@@ -15,285 +15,98 @@
 </style>
     </head>
     <body>
-        This is from: 
-        https://stackoverflow.com/questions/44498954/d3-v4-moving-both-circle-and-text-at-the-same-time
 
-        <br>
-        I really liked this example, so I am going to squirrel it away to examine. 
+<svg id="viewport" width="1200" height="500"></svg>
+<hr>
 
-<svg width="800" height="500"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="d3.v4.min.js"></script>
 <script>
-    // Create somewhere to put the force directed graph
-  var svg = d3.select("svg"),
+  const svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
-  var radius = 20;
+  const radius = 10;
 
   // DATA
-  var nodes_data = [{
-    "id": "Lillian",
+  const nodes_data = [{
+    "id": "Finch",
     "sex": "F"
   }, {
-    "id": "Gordon",
-    "sex": "M"
-  }, {
-    "id": "Sylvester",
-    "sex": "M"
-  }, {
-    "id": "Mary",
+    "id": "Swift",
     "sex": "F"
   }, {
-    "id": "Helen",
+    "id": "Swallow",
     "sex": "F"
   }, {
-    "id": "Jamie",
-    "sex": "M"
-  }, {
-    "id": "Jessie",
+    "id": "Wren",
     "sex": "F"
   }, {
-    "id": "Ashton",
+    "id": "Kittycat",
     "sex": "M"
   }, {
-    "id": "Duncan",
-    "sex": "M"
+    "id":"Crow",
+    "sex":"M"
   }, {
-    "id": "Evette",
-    "sex": "F"
+    "id":"Chicken",
+    "sex":"F"
   }, {
-    "id": "Mauer",
-    "sex": "M"
+    "id":"Hawk",
+    "sex":"F"
   }, {
-    "id": "Fray",
-    "sex": "F"
-  }, {
-    "id": "Duke",
-    "sex": "M"
-  }, {
-    "id": "Baron",
-    "sex": "M"
-  }, {
-    "id": "Infante",
-    "sex": "M"
-  }, {
-    "id": "Percy",
-    "sex": "M"
-  }, {
-    "id": "Cynthia",
-    "sex": "F"
-  }, {
-    "id": "Feyton",
-    "sex": "M"
-  }, {
-    "id": "Lesley",
-    "sex": "F"
-  }, {
-    "id": "Yvette",
-    "sex": "F"
-  }, {
-    "id": "Maria",
-    "sex": "F"
-  }, {
-    "id": "Lexy",
-    "sex": "F"
-  }, {
-    "id": "Peter",
-    "sex": "M"
-  }, {
-    "id": "Ashley",
-    "sex": "F"
-  }, {
-    "id": "Finkler",
-    "sex": "M"
-  }, {
-    "id": "Damo",
-    "sex": "M"
-  }, {
-    "id": "Imogen",
-    "sex": "F"
-  }];
-  var links_data = [{
-    "source": "Sylvester",
-    "target": "Gordon",
+    "id":"Starling",
+    "sex":"F"
+  }
+  ];
+  const links_data = [{
+    "source": "Kittycat",
+    "target": "Finch",
     "type": "A"
   }, {
-    "source": "Sylvester",
-    "target": "Lillian",
+    "source": "Kittycat",
+    "target": "Swift",
     "type": "A"
-  }, {
-    "source": "Sylvester",
-    "target": "Mary",
+  },{
+    "source": "Kittycat",
+    "target": "Swallow",
     "type": "A"
-  }, {
-    "source": "Sylvester",
-    "target": "Jamie",
+  },{
+    "source": "Kittycat",
+    "target": "Wren",
     "type": "A"
-  }, {
-    "source": "Sylvester",
-    "target": "Jessie",
+  },{
+    "source": "Crow",
+    "target": "Kittycat",
     "type": "A"
-  }, {
-    "source": "Sylvester",
-    "target": "Helen",
+  },{
+    "source": "Finch",
+    "target": "Swift",
     "type": "A"
-  }, {
-    "source": "Helen",
-    "target": "Gordon",
+  },{
+    "source": "Finch",
+    "target": "Chicken",
     "type": "A"
-  }, {
-    "source": "Mary",
-    "target": "Lillian",
+  },{
+    "source": "Chicken",
+    "target": "Hawk",
     "type": "A"
-  }, {
-    "source": "Ashton",
-    "target": "Mary",
+  },{
+    "source": "Hawk",
+    "target": "Starling",
     "type": "A"
-  }, {
-    "source": "Duncan",
-    "target": "Jamie",
-    "type": "A"
-  }, {
-    "source": "Gordon",
-    "target": "Jessie",
-    "type": "A"
-  }, {
-    "source": "Sylvester",
-    "target": "Fray",
-    "type": "E"
-  }, {
-    "source": "Fray",
-    "target": "Mauer",
-    "type": "A"
-  }, {
-    "source": "Fray",
-    "target": "Cynthia",
-    "type": "A"
-  }, {
-    "source": "Fray",
-    "target": "Percy",
-    "type": "A"
-  }, {
-    "source": "Percy",
-    "target": "Cynthia",
-    "type": "A"
-  }, {
-    "source": "Infante",
-    "target": "Duke",
-    "type": "A"
-  }, {
-    "source": "Duke",
-    "target": "Gordon",
-    "type": "A"
-  }, {
-    "source": "Duke",
-    "target": "Sylvester",
-    "type": "A"
-  }, {
-    "source": "Baron",
-    "target": "Duke",
-    "type": "A"
-  }, {
-    "source": "Baron",
-    "target": "Sylvester",
-    "type": "E"
-  }, {
-    "source": "Evette",
-    "target": "Sylvester",
-    "type": "E"
-  }, {
-    "source": "Cynthia",
-    "target": "Sylvester",
-    "type": "E"
-  }, {
-    "source": "Cynthia",
-    "target": "Jamie",
-    "type": "E"
-  }, {
-    "source": "Mauer",
-    "target": "Jessie",
-    "type": "E"
-  }, {
-    "source": "Duke",
-    "target": "Lexy",
-    "type": "A"
-  }, {
-    "source": "Feyton",
-    "target": "Lexy",
-    "type": "A"
-  }, {
-    "source": "Maria",
-    "target": "Feyton",
-    "type": "A"
-  }, {
-    "source": "Baron",
-    "target": "Yvette",
-    "type": "E"
-  }, {
-    "source": "Evette",
-    "target": "Maria",
-    "type": "E"
-  }, {
-    "source": "Cynthia",
-    "target": "Yvette",
-    "type": "E"
-  }, {
-    "source": "Maria",
-    "target": "Jamie",
-    "type": "E"
-  }, {
-    "source": "Maria",
-    "target": "Lesley",
-    "type": "E"
-  }, {
-    "source": "Ashley",
-    "target": "Damo",
-    "type": "A"
-  }, {
-    "source": "Damo",
-    "target": "Lexy",
-    "type": "A"
-  }, {
-    "source": "Maria",
-    "target": "Feyton",
-    "type": "A"
-  }, {
-    "source": "Finkler",
-    "target": "Ashley",
-    "type": "E"
-  }, {
-    "source": "Sylvester",
-    "target": "Maria",
-    "type": "E"
-  }, {
-    "source": "Peter",
-    "target": "Finkler",
-    "type": "E"
-  }, {
-    "source": "Ashley",
-    "target": "Gordon",
-    "type": "E"
-  }, {
-    "source": "Maria",
-    "target": "Imogen",
-    "type": "E"
-  }];
+  }
+  ];
 
   // Set up the simulation and add forces
-  var simulation = d3.forceSimulation()
-    .nodes(nodes_data);
+  const simulation = d3.forceSimulation().nodes(nodes_data);
 
-  var link_force = d3.forceLink(links_data)
+  const link_force = d3.forceLink(links_data)
     .id(function(d) {
       return d.id;
     });
 
-  var charge_force = d3.forceManyBody()
-    .strength(-200);
-
-  var center_force = d3.forceCenter(width / 2, height / 2);
-
+//  var charge_force = d3.forceManyBody().strength(-200);
+  const charge_force = d3.forceManyBody().strength(-1001);
+  const center_force = d3.forceCenter(width / 2, height / 2);
   simulation
     .force("charge_force", charge_force)
     .force("center_force", center_force)
@@ -304,11 +117,11 @@
   simulation.on("tick", tickActions);
 
   // Add encompassing group for the zoom
-  var g = svg.append("g")
+  const g = svg.append("g")
     .attr("class", "everything");
 
   // Draw lines for the links
-  var link = g.append("g")
+  const link = g.append("g")
     .attr("class", "links")
     .selectAll("line")
     .data(links_data)
@@ -318,25 +131,25 @@
     .style("stroke", linkColour);
 
   // Draw circles and texts for the nodes
-  var nodes = g.append("g")
-    .attr("class", "nodes");
+  const nodes = g.append("g").attr("class", "nodes");
 
-  var node = nodes.selectAll("node")
+  const node = nodes.selectAll("node")
     .data(nodes_data)
     .enter()
     .append("g");
 
-  var circle = node.append("circle")
+  const circle = node.append("circle")
     .attr("r", radius)
     .attr("fill", circleColour);
 
-  var text = node.append("text")
+  const text = node.append("text")
     .text(getId)
     .attr("y", -22)
-    .attr("text-anchor", "middle");
+    .attr("text-anchor", "middle")
+    .attr("pointer-events", "none"); 
 
   // Add drag capabilities
-  var drag_handler = d3.drag()
+  const drag_handler = d3.drag()
     .on("start", drag_start)
     .on("drag", drag_drag)
     .on("end", drag_end);
@@ -350,15 +163,14 @@
   zoom_handler(svg);
 
   /** Functions **/
-function getId(d) {
-    console.log("d: " + JSON.stringify(d,null,2))
+  function getId(d) {
     return d.id 
-     }
+  }
   function circleColour(d) {
     if (d.sex == "M") {
-      return "blue";
+      return "#00ff00";
     } else {
-      return "pink";
+      return "#e0e0e0" ;
     }
   }
 
