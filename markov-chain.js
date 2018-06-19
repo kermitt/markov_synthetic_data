@@ -12,7 +12,603 @@ const data = {
   ]
 }
 */
-
+const data = {
+  'nodes': [
+    {
+      'id': 0,
+      'x': 80,
+      'y': 15,
+      'group': 0,
+      'name': 'A',
+      'value': 93.89947529336527
+    },
+    {
+      'id': 1,
+      'x': 28,
+      'y': 89,
+      'group': 1,
+      'name': 'B',
+      'value': 97.50035201532108
+    },
+    {
+      'id': 2,
+      'x': 38,
+      'y': 62,
+      'group': 2,
+      'name': 'C',
+      'value': 2.030582730737973
+    },
+    {
+      'id': 3,
+      'x': 40,
+      'y': 94,
+      'group': 2,
+      'name': 'D',
+      'value': 44.89701963220516
+    },
+    {
+      'id': 4,
+      'x': 33,
+      'y': 31,
+      'group': 2,
+      'name': 'E',
+      'value': 54.67589351177607
+    },
+    {
+      'id': 5,
+      'x': 99,
+      'y': 16,
+      'group': 3,
+      'name': 'F',
+      'value': 43.298995698586836
+    },
+    {
+      'id': 6,
+      'x': 43,
+      'y': 35,
+      'group': 3,
+      'name': 'G',
+      'value': 14.830469082526765
+    },
+    {
+      'id': 7,
+      'x': 23,
+      'y': 28,
+      'group': 3,
+      'name': 'H',
+      'value': 89.52167580545725
+    },
+    {
+      'id': 8,
+      'x': 91,
+      'y': 13,
+      'group': 3,
+      'name': 'I',
+      'value': 69.23551036033335
+    },
+    {
+      'id': 9,
+      'x': 79,
+      'y': 75,
+      'group': 3,
+      'name': 'J',
+      'value': 6.343532427431864
+    },
+    {
+      'id': 10,
+      'x': 82,
+      'y': 41,
+      'group': 4,
+      'name': 'K',
+      'value': 27.096562829536897
+    },
+    {
+      'id': 11,
+      'x': 44,
+      'y': 46,
+      'group': 5,
+      'name': 'L',
+      'value': 36.51173116684738
+    },
+    {
+      'id': 12,
+      'x': 19,
+      'y': 56,
+      'group': 6,
+      'name': 'M',
+      'value': 3.8012936207606263
+    },
+    {
+      'id': 13,
+      'x': 94,
+      'y': 26,
+      'group': 7,
+      'name': 'N',
+      'value': 43.51152002142085
+    },
+    {
+      'id': 14,
+      'x': 49,
+      'y': 82,
+      'group': 7,
+      'name': 'O',
+      'value': 44.75267020397187
+    },
+    {
+      'id': 15,
+      'x': 61,
+      'y': 32,
+      'group': 7,
+      'name': 'P',
+      'value': 76.92744999980856
+    },
+    {
+      'id': 16,
+      'x': 37,
+      'y': 55,
+      'group': 7,
+      'name': 'Q',
+      'value': 42.47267697730883
+    },
+    {
+      'id': 17,
+      'x': 19,
+      'y': 56,
+      'group': 7,
+      'name': 'R',
+      'value': 34.13506653396021
+    },
+    {
+      'id': 18,
+      'x': 19,
+      'y': 87,
+      'group': 7,
+      'name': 'S',
+      'value': 95.57322072222819
+    },
+    {
+      'id': 19,
+      'x': 39,
+      'y': 99,
+      'group': 7,
+      'name': 'T',
+      'value': 81.4039834041621
+    },
+    {
+      'id': 20,
+      'x': 36,
+      'y': 21,
+      'group': 7,
+      'name': 'U',
+      'value': 43.00485626225661
+    },
+    {
+      'id': 21,
+      'x': 14,
+      'y': 90,
+      'group': 7,
+      'name': 'V',
+      'value': 13.78099083263351
+    },
+    {
+      'id': 22,
+      'x': 60,
+      'y': 78,
+      'group': 7,
+      'name': 'W',
+      'value': 49.318337384359914
+    },
+    {
+      'id': 23,
+      'x': 64,
+      'y': 18,
+      'group': 7,
+      'name': 'X',
+      'value': 37.27374666984975
+    },
+    {
+      'id': 24,
+      'x': 24,
+      'y': 35,
+      'group': 7,
+      'name': 'Y',
+      'value': 67.94297633573952
+    },
+    {
+      'id': 25,
+      'x': 18,
+      'y': 52,
+      'group': 7,
+      'name': 'Z',
+      'value': 10.674838105048634
+    },
+    {
+      'id': 26,
+      'x': 44,
+      'y': 39,
+      'group': 7,
+      'name': 'AA',
+      'value': 37.446835846364394
+    },
+    {
+      'id': 27,
+      'x': 0,
+      'y': 89,
+      'group': 8,
+      'name': 'AB',
+      'value': 71.53452107638574
+    },
+    {
+      'id': 28,
+      'x': 76,
+      'y': 1,
+      'group': 8,
+      'name': 'AC',
+      'value': 41.61530838976333
+    },
+    {
+      'id': 29,
+      'x': 79,
+      'y': 76,
+      'group': 8,
+      'name': 'AD',
+      'value': 24.042917738025626
+    }
+  ],
+  'links': [
+    {
+      'source': 0,
+      'target': 28,
+      'probability': 0.4985558125061553
+    },
+    {
+      'source': 0,
+      'target': 5,
+      'probability': 0.5014441874938447
+    },
+    {
+      'source': 1,
+      'target': 11,
+      'probability': 0.05519376272333498
+    },
+    {
+      'source': 1,
+      'target': 3,
+      'probability': 0.8585411557035172
+    },
+    {
+      'source': 1,
+      'target': 13,
+      'probability': 0.08626508157314783
+    },
+    {
+      'source': 2,
+      'target': 18,
+      'probability': 0.17092198644658407
+    },
+    {
+      'source': 2,
+      'target': 21,
+      'probability': 0.5011460982330671
+    },
+    {
+      'source': 2,
+      'target': 19,
+      'probability': 0.3279319153203488
+    },
+    {
+      'source': 3,
+      'target': 8,
+      'probability': 0.9624932375520237
+    },
+    {
+      'source': 3,
+      'target': 2,
+      'probability': 0.03750676244797635
+    },
+    {
+      'source': 4,
+      'target': 25,
+      'probability': 0.5884149263652263
+    },
+    {
+      'source': 4,
+      'target': 12,
+      'probability': 0.4115850736347737
+    },
+    {
+      'source': 5,
+      'target': 27,
+      'probability': 0.9762089408257046
+    },
+    {
+      'source': 5,
+      'target': 10,
+      'probability': 0.02379105917429536
+    },
+    {
+      'source': 6,
+      'target': 21,
+      'probability': 0.14573118571576993
+    },
+    {
+      'source': 6,
+      'target': 25,
+      'probability': 0.7053097488027529
+    },
+    {
+      'source': 6,
+      'target': 7,
+      'probability': 0.1489590654814772
+    },
+    {
+      'source': 7,
+      'target': 9,
+      'probability': 0.7517096057671311
+    },
+    {
+      'source': 7,
+      'target': 13,
+      'probability': 0.24829039423286892
+    },
+    {
+      'source': 8,
+      'target': 17,
+      'probability': 0.0400393728309838
+    },
+    {
+      'source': 8,
+      'target': 10,
+      'probability': 0.8237389916114886
+    },
+    {
+      'source': 8,
+      'target': 6,
+      'probability': 0.016872690068886698
+    },
+    {
+      'source': 9,
+      'target': 6,
+      'probability': 0.27362089551242796
+    },
+    {
+      'source': 9,
+      'target': 2,
+      'probability': 0.726379104487572
+    },
+    {
+      'source': 10,
+      'target': 14,
+      'probability': 0.3788019723975282
+    },
+    {
+      'source': 10,
+      'target': 27,
+      'probability': 0.6211980276024718
+    },
+    {
+      'source': 11,
+      'target': 23,
+      'probability': 0.9684323076399934
+    },
+    {
+      'source': 11,
+      'target': 7,
+      'probability': 0.03156769236000656
+    },
+    {
+      'source': 12,
+      'target': 0,
+      'probability': 0.41101740076825455
+    },
+    {
+      'source': 12,
+      'target': 27,
+      'probability': 0.24345847737835635
+    },
+    {
+      'source': 12,
+      'target': 20,
+      'probability': 0.3455241218533891
+    },
+    {
+      'source': 13,
+      'target': 7,
+      'probability': 0.5615375941645293
+    },
+    {
+      'source': 13,
+      'target': 28,
+      'probability': 0.19410038692578757
+    },
+    {
+      'source': 13,
+      'target': 21,
+      'probability': 0.24436201890968312
+    },
+    {
+      'source': 14,
+      'target': 27,
+      'probability': 0.3184775921734875
+    },
+    {
+      'source': 14,
+      'target': 12,
+      'probability': 0.6466900317108162
+    },
+    {
+      'source': 14,
+      'target': 6,
+      'probability': 0.011954153851910121
+    },
+    {
+      'source': 15,
+      'target': 17,
+      'probability': 0.6636932835659717
+    },
+    {
+      'source': 15,
+      'target': 14,
+      'probability': 0.3363067164340283
+    },
+    {
+      'source': 16,
+      'target': 26,
+      'probability': 0.7013888005402082
+    },
+    {
+      'source': 16,
+      'target': 3,
+      'probability': 0.29861119945979175
+    },
+    {
+      'source': 17,
+      'target': 17,
+      'probability': 0.6412884376165646
+    },
+    {
+      'source': 17,
+      'target': 2,
+      'probability': 0.3587115623834354
+    },
+    {
+      'source': 18,
+      'target': 7,
+      'probability': 0.06924275001120961
+    },
+    {
+      'source': 18,
+      'target': 27,
+      'probability': 0.5645416020316725
+    },
+    {
+      'source': 18,
+      'target': 0,
+      'probability': 0.3662156479571179
+    },
+    {
+      'source': 19,
+      'target': 27,
+      'probability': 0.547909995634565
+    },
+    {
+      'source': 19,
+      'target': 20,
+      'probability': 0.452090004365435
+    },
+    {
+      'source': 20,
+      'target': 6,
+      'probability': 0.7770757760172775
+    },
+    {
+      'source': 20,
+      'target': 26,
+      'probability': 0.2229242239827225
+    },
+    {
+      'source': 21,
+      'target': 0,
+      'probability': 0.5007767766462463
+    },
+    {
+      'source': 21,
+      'target': 10,
+      'probability': 0.4992232233537537
+    },
+    {
+      'source': 22,
+      'target': 29,
+      'probability': 0.4809794084474899
+    },
+    {
+      'source': 22,
+      'target': 26,
+      'probability': 0.5190205915525101
+    },
+    {
+      'source': 23,
+      'target': 23,
+      'probability': 0.37096767484128246
+    },
+    {
+      'source': 23,
+      'target': 8,
+      'probability': 0.6290323251587175
+    },
+    {
+      'source': 24,
+      'target': 4,
+      'probability': 0.0078348703899207
+    },
+    {
+      'source': 24,
+      'target': 2,
+      'probability': 0.5459122056689427
+    },
+    {
+      'source': 24,
+      'target': 23,
+      'probability': 0.4462529239411366
+    },
+    {
+      'source': 25,
+      'target': 12,
+      'probability': 0.6603583078768722
+    },
+    {
+      'source': 25,
+      'target': 12,
+      'probability': 0.3396416921231278
+    },
+    {
+      'source': 26,
+      'target': 15,
+      'probability': 0.9259830953440473
+    },
+    {
+      'source': 26,
+      'target': 17,
+      'probability': 0.07401690465595268
+    },
+    {
+      'source': 27,
+      'target': 6,
+      'probability': 0.6823921098082137
+    },
+    {
+      'source': 27,
+      'target': 22,
+      'probability': 0.31760789019178626
+    },
+    {
+      'source': 28,
+      'target': 27,
+      'probability': 0.6804198741860836
+    },
+    {
+      'source': 28,
+      'target': 12,
+      'probability': 0.10014967693701471
+    },
+    {
+      'source': 28,
+      'target': 2,
+      'probability': 0.21943044887690166
+    },
+    {
+      'source': 29,
+      'target': 5,
+      'probability': 0.5909667408422439
+    },
+    {
+      'source': 29,
+      'target': 13,
+      'probability': 0.4090332591577561
+    }
+  ]
+}
+/*
 const data = {
   'nodes': [
     {
@@ -379,7 +975,7 @@ const data = {
     }
   ]
 }
-
+*/
 var svg = d3.select('.chart')
 var w = window.innerWidth
 const h = window.innerHeight * 0.66
@@ -396,7 +992,7 @@ var width = svg.attr('width')
 var height = svg.attr('height')
 
 var edges = svg.selectAll('path')
-            .data(data.edges)
+            .data(data.links)
         .enter().append('path')
             .attr('class', 'edge')
 
