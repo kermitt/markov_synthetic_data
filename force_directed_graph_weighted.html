@@ -9,7 +9,7 @@
 
 .nodes circle {
   stroke: #fff;
-  stroke-width: 1.5px;
+  stroke-width: 1px;
 }
 
 svg text {
@@ -25,6 +25,7 @@ svg text {
 </style>
 <svg id="chart" width="960" height="600"></svg>
 <hr>
+<code id='thing'></code>
 <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
 <script src="d3.v4.min.js"></script>
 <script>
@@ -40,16 +41,16 @@ document.getElementById('chart').style.height = h
 
 
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+var color = d3.scaleOrdinal(d3.schemeCategory20c);
   
 var radius = d3.scaleSqrt()
-    .range([0, 6]);
+    .range([1, 3]);
 
 var simulation = d3.forceSimulation()
     .force("link", 
            d3.forceLink().id(function(d) { return d.id; })
             .distance(function(d) { return radius(d.source.value / 2) + radius(d.target.value / 2); })
-          .strength(function(d) {return 0.05; })
+          .strength(function(d) {return 0.25; })
           )
     .force("charge", d3.forceManyBody().strength(-300))
     .force("collide", d3.forceCollide().radius(function(d) { return radius(d.value / 2) + 2; }))
@@ -67,14 +68,25 @@ d3.json("data.json", function(error, graph) {
 
   link.style('fill', 'none')
       .style('stroke', 'black')
-      .style("stroke-width", '2px');
+      .style("stroke-width", '1px');
 
   var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("g")
     .data(graph.nodes)
     .enter().append("g")
-  .style('transform-origin', '50% 50%')
+    .on("click", function(d) {
+      let out = "<table border='1'>"
+      console.log(d)
+      for ( let k in d ) {
+        out += "<tr><td>" + k + "</td><td>" + d[k] + "</td></tr>"
+      }
+      out += "</table>"
+      document.getElementById("thing").innerHTML = out 
+
+
+    })
+  // .style('transform-origin', '50% 50%')
    .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -82,7 +94,9 @@ d3.json("data.json", function(error, graph) {
   
   node.append('circle')
       .attr("r", function(d) { return radius(d.value / 2); })
-      .attr("fill", function(d) { return color(d.group); })
+      .attr("fill", function(d) { 
+        return color(d.group); 
+      })
     
   
   node.append("text")
@@ -97,6 +111,19 @@ d3.json("data.json", function(error, graph) {
   simulation.force("link")
       .links(graph.links);
 
+
+// Add zoom capabilities
+  var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+
+
+
+ // Zoom functions
+  function zoom_actions() {
+    svg.attr("transform", d3.event.transform)
+  }
+
+  zoom_handler(svg);
   function ticked() {
     link.attr("d", function(d) {
         var dx = d.target.x - d.source.x,
